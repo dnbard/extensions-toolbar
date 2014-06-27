@@ -21,6 +21,13 @@ define(function (require, exports, module) {
         $('.content').css('width','100%');
         $('.CodeMirror-vscrollbar').css('position', 'fixed');
     }
+    
+    function controlScrollBarPosition(){
+        var documentManager = brackets.getModule('document/DocumentManager');
+        $(documentManager).on('currentDocumentChange', function(event){
+            $('.CodeMirror-vscrollbar').css('position', 'fixed');
+        });
+    }
 
     $(document).ready(function(){
         setTimeout(function(){
@@ -39,6 +46,7 @@ define(function (require, exports, module) {
             }
             
             prepareEditor();
-       }, 1000);
+        }, 1000);
+        controlScrollBarPosition();
    });
 });

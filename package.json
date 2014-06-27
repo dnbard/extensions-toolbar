@@ -3,11 +3,11 @@
     "title": "Extensions Toolbar Reposition",
     "description": "Move extensions toolbar to Status bar and extend editor size",
     "homepage": "https://github.com/dnbard/extensions-toolbar/tree/master",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Alex Bardanov <dnbard@gmail.com>",
     "license": "MIT",
     "engines": {
-        "brackets": ">=0.24.0"
+        "brackets": ">=0.39.0"
     },
     "keywords": ["extensions", "editor", "enachancement"]
 }
