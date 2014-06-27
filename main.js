@@ -5,7 +5,15 @@ define(function (require, exports, module) {
     "use strict";
     
     var CommandManager = brackets.getModule("command/CommandManager"),
-        Menus = brackets.getModule("command/Menus");
+        Menus = brackets.getModule("command/Menus"),
+        extensionsToolbar = $('#main-toolbar'),
+        statusToolbar = $('#status-info'),
+        statusCursor = $('#status-cursor'),
+        statusFile = $('#status-file'),
+        content = $('.content'),
+        scrollBar = $('.CodeMirror-vscrollbar'),
+        //give extensions 1 sec to load itself
+        extensionsLoadingTimeout = 1000;
     
     function getClickHandler(extension){
         return function(){
@@ -13,29 +21,30 @@ define(function (require, exports, module) {
         }
     }
     
-    $('#main-toolbar').hide();
+    extensionsToolbar.hide();
     
     function prepareEditor(){
-        $('#status-cursor').css('vertical-align', 'top');
-        $('#status-file').css('vertical-align', 'top');
-        $('.content').css('width','100%');
-        $('.CodeMirror-vscrollbar').css('position', 'fixed');
+        statusCursor.css('vertical-align', 'top');
+        statusFile.css('vertical-align', 'top');
+        content.css('width','100%');
     }
     
     function controlScrollBarPosition(){
         var documentManager = brackets.getModule('document/DocumentManager');
-        $(documentManager).on('currentDocumentChange', function(event){
-            $('.CodeMirror-vscrollbar').css('position', 'fixed');
-        });
+        $(documentManager).on('currentDocumentChange', onDocumentChange);
+    }
+    
+    function onDocumentChange(){
+        $('.CodeMirror-vscrollbar').css('position', 'fixed');
+        $('#status-bar').css('z-index', '10');
     }
 
     $(document).ready(function(){
         setTimeout(function(){
-            var extensions = $('#main-toolbar > .buttons > a'),
+            var extensions = extensionsToolbar.find('.buttons > a'),
                 holder = $('<div></div>');
 
-            $('#status-info').prepend(holder);
-            
+            statusToolbar.prepend(holder);
             for (var i = 0; i < extensions.length; i ++){
                 var extension = $(extensions[i]);
                 
@@ -46,7 +55,7 @@ define(function (require, exports, module) {
             }
             
             prepareEditor();
-        }, 1000);
+        }, extensionsLoadingTimeout);
         controlScrollBarPosition();
    });
 });
