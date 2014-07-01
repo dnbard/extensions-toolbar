@@ -12,6 +12,14 @@ define(function (require, exports, module) {
         return config;
     }
     
+    function getIgnoreList(){
+        if (!config.ignore){
+            return {};
+        }
+
+        return config.ignore;
+    }
+
     function addIgnoreExt(id){
         if (!config.ignore){
             config.ignore = {}
@@ -24,6 +32,16 @@ define(function (require, exports, module) {
         save(config);
     }
     
+    function removeExtFromExt(id){
+        if (!config.ignore || !config.ignore[id]){
+            return false;
+        }
+
+        delete config.ignore[id];
+        save(config);
+        return true;
+    }
+
     function checkIgnore(id){
         if (!config.ignore){
             return false;
@@ -32,8 +50,12 @@ define(function (require, exports, module) {
         return !!config.ignore[id];
     }
     
-    exports.getConfig = getConfig;
-    exports.save = save;
-    exports.ignore = addIgnoreExt;
-    exports.checkIgnore = checkIgnore;
+    module.exports = {
+        getConfig: getConfig,
+        save: save,
+        ignore: addIgnoreExt,
+        unignore: removeExtFromExt,
+        checkIgnore: checkIgnore,
+        getIgnoreList: getIgnoreList
+    }
 });
