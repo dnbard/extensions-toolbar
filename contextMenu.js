@@ -8,16 +8,24 @@ define(function(require, exports, module){
         config = require('./config');
     
     function getExtId(extension){
+        if (typeof extension !== 'object'){
+            throw new Error('Invalid argument');
+        }
         return extension.id || null;
     }
     
     function hideExtension(){
         var id = getExtId(contextTarget);
-        config.ignore(id);
+        if (typeof id === 'string'){
+            config.ignore(id);
+        } else {
+            throw new Error('Extension ID must not be NULL. Please report which Brackets Extension throwing this error to https://github.com/dnbard/extensions-toolbar/ as new Issue!');
+        }
     }
     
     CommandManager.register('Hide Extension', hideCommandId, hideExtension);
     contextMenu.addMenuItem(hideCommandId);
+    
     contextMenu.setTarget = function (extension){
         if (typeof extension !== 'object'){
             throw new Error('Invalid argument');
