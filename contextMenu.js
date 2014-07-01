@@ -83,4 +83,5 @@ define(function(require, exports, module){
     exports.id = contextMenuId;
     exports.menu = contextMenu;
     exports.getExtensionId = getExtId;
+    exports.showSettings = showSettings;
 });

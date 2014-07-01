@@ -17,6 +17,8 @@ define(function (require, exports, module) {
         contextMenu = require('./contextMenu').menu,
         config = require('./config');
     
+    require('./mainMenu');
+
     function getClickHandler(extension){
         return function(){
             extension.trigger('click');
