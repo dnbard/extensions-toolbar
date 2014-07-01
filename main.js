@@ -49,7 +49,9 @@ define(function (require, exports, module) {
                 var extension = $(extensions[i]);
                 
                 holder.append(extension);
-                extension.css('display', 'inline-block');
+                if (extension.css('display') !== 'none'){
+                    extension.css('display', 'inline-block');
+                }
                 extension.css('width', '24px');
                 extension.css('height', '24px');
             }
