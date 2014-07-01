@@ -13,7 +13,9 @@ define(function (require, exports, module) {
         content = $('.content'),
         scrollBar = $('.CodeMirror-vscrollbar'),
         //give extensions 1 sec to load itself
-        extensionsLoadingTimeout = 1000;
+        extensionsLoadingTimeout = 1000,
+        contextMenu = require('./contextMenu').menu,
+        config = require('./config');
     
     function getClickHandler(extension){
         return function(){
@@ -38,6 +40,25 @@ define(function (require, exports, module) {
         $('.CodeMirror-vscrollbar').css('position', 'fixed');
         $('#status-bar').css('z-index', '10');
     }
+    
+    function format(extension){
+        var id = require('./contextMenu').getExtensionId(extension[0]);
+        
+        if (extension.css('display') !== 'none' && !config.checkIgnore(id)){
+            extension.css('display', 'inline-block');
+        } else {
+            extension.css('display', 'none');
+        }
+        extension.css('width', '24px');
+        extension.css('height', '24px');
+        
+        extension.mousedown(function(event){
+            if (event.which === 3){
+                contextMenu.setTarget(extension);
+                contextMenu.open(event);
+            }
+        });
+    }
 
     $(document).ready(function(){
         setTimeout(function(){
@@ -47,13 +68,8 @@ define(function (require, exports, module) {
             statusToolbar.prepend(holder);
             for (var i = 0; i < extensions.length; i ++){
                 var extension = $(extensions[i]);
-                
                 holder.append(extension);
-                if (extension.css('display') !== 'none'){
-                    extension.css('display', 'inline-block');
-                }
-                extension.css('width', '24px');
-                extension.css('height', '24px');
+                format(extension);
             }
             
             prepareEditor();
