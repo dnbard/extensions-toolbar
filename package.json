@@ -1,13 +1,13 @@
 {
     "name": "dnbard.extensions-toolbar",
     "title": "Extensions Toolbar Reposition",
-    "description": "Move extensions toolbar to Status bar and extend editor size",
+    "description": "Make bigger editor window, hide and manage extension icons",
     "homepage": "https://github.com/dnbard/extensions-toolbar",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "author": "Alex Bardanov <dnbard@gmail.com>",
     "license": "MIT",
     "engines": {
         "brackets": ">=0.39.0"
     },
-    "keywords": ["extensions", "editor", "enhancement"]
+    "keywords": ["extensions", "editor", "enhancement", "icons"]
 }
