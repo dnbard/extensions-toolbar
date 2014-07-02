@@ -1,13 +1,15 @@
-Extensions toolbar
-==================
+Extensions toolbar reposition
+=============================
 
-[Brackets](http://brackets.io/) extension that create bigger editor window and manage extension icons
+[Brackets](http://brackets.io/) extension that create bigger editor window and helps to manage extension icons.
 
 
 * Extensions icons moved to status bar (bottom of the screen)
-* Editor window now as big as posible
 
 ![example](http://content.screencast.com/users/dnbard/folders/Jing/media/7badfb41-9fd5-40f9-abd7-8349a6b36ee7/2014-06-27_1134.png)
+
+* Editor window now as big as posible
+
 ![example](http://content.screencast.com/users/dnbard/folders/Jing/media/ffec75ee-10b9-4caf-b41f-44c854df6b3c/2014-06-27_1359.png)
 
 * Extension icons can be hidden from status bar
