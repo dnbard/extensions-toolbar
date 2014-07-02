@@ -19,6 +19,7 @@ define(function (require, exports, module) {
         config = require('./config');
     
     require('./mainMenu');
+    require('./mutationService');
     ExtensionUtils.loadStyleSheet(module, 'css/main.css');
 
     function getClickHandler(extension){

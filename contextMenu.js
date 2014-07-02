@@ -51,7 +51,6 @@ define(function(require, exports, module){
                 });
 
             modalBody.append(string);
-            console.log(string);
         });
 
         modalBody.find('.extension > a.btn').click(function(event){
