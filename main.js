@@ -4,8 +4,9 @@
 define(function (require, exports, module) {
     "use strict";
     
-    var CommandManager = brackets.getModule("command/CommandManager"),
-        Menus = brackets.getModule("command/Menus"),
+    var CommandManager = brackets.getModule('command/CommandManager'),
+        Menus = brackets.getModule('command/Menus'),
+        ExtensionUtils = brackets.getModule('utils/ExtensionUtils'),
         extensionsToolbar = $('#main-toolbar'),
         statusToolbar = $('#status-info'),
         statusCursor = $('#status-cursor'),
@@ -18,6 +19,7 @@ define(function (require, exports, module) {
         config = require('./config');
     
     require('./mainMenu');
+    ExtensionUtils.loadStyleSheet(module, 'css/main.css');
 
     function getClickHandler(extension){
         return function(){

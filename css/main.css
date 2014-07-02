@@ -1,0 +1,30 @@
+.ext_toolbar .extension{
+    border-bottom:1px dotted gray;
+    border-left: 5px solid lightgray;
+    width: 100%;
+    transition: 0.25s all;
+}
+
+.ext_toolbar .extension:hover{
+    background: lightgray;
+}
+
+.ext_toolbar .extension > .e-icon{
+    margin-left: 5px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.ext_toolbar .extension > .e-name{
+    vertical-align:super;
+}
+
+.ext_toolbar .extension > a.btn{
+    height: 18px;
+    vertical-align: super;
+    transition: 0.25s all;
+    cursor: pointer;
+    padding: 2px 5px;
+    margin: 1px 5px;
+}

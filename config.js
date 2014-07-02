@@ -20,13 +20,17 @@ define(function (require, exports, module) {
         return config.ignore;
     }
 
-    function addIgnoreExt(id){
+    function addIgnoreExt(id, ext){
         if (!config.ignore){
             config.ignore = {}
         }
         
-        if (config.ignore[id] !== true){
-            config.ignore[id] = true;
+        if (!config.ignore[id]){
+            if (ext === undefined) {
+                config.ignore[id] = true;
+            } else {
+                config.ignore[id] = ext;
+            }
         }
         
         save(config);

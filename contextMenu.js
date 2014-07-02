@@ -18,10 +18,13 @@ define(function(require, exports, module){
     }
     
     function hideExtension(){
-        var id = getExtId(contextTarget);
+        var id = getExtId(contextTarget),
+            $target = $(contextTarget);
         if (typeof id === 'string'){
-            config.ignore(id);
-            $(contextTarget).css('display', 'none');
+            config.ignore(id, {
+                image: $target.css('background')
+            });
+            $target.css('display', 'none');
         } else {
             throw new Error('Extension ID must not be NULL. Please report which Brackets Extension throwing this error to https://github.com/dnbard/extensions-toolbar/ as new Issue!');
         }
@@ -40,14 +43,18 @@ define(function(require, exports, module){
             modalBody.append('<div class="dialog-message">Hidden extensions:</div>');
         }
 
-        _.each(ignoreList, function(isHidden, extension){
-            var tmpl = require('text!./templates/settings_ext.html');
-            modalBody.append(
-                _.template(tmpl, {ext: extension})
-            );
+        _.each(ignoreList, function(value, extension){
+            var tmpl = require('text!./templates/settings_ext.html'),
+                string = _.template(tmpl, {
+                    ext: extension,
+                    background: value.image
+                });
+
+            modalBody.append(string);
+            console.log(string);
         });
 
-        modalBody.find('.extension > a.label').click(function(event){
+        modalBody.find('.extension > a.btn').click(function(event){
             var id = $(event.target).attr('data-id');
 
             if (typeof id !== 'string' || id.length === 0){
