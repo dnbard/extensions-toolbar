@@ -20,4 +20,5 @@ Extensions toolbar reposition
 
 ![example](http://content.screencast.com/users/dnbard/folders/Jing/media/6cdba794-c120-44c9-8681-bd3f991e5876/2014-07-02_1050.png)
 
-Fits perfectly with Brackets [sidebar plus extension](https://github.com/sathyamoorthi/brackets-sidebar-plus)
+Note: "Show Extension Setting" dialog also available from File menu.
+Extensions toolbar reposition fits perfectly with Brackets [sidebar plus](https://github.com/sathyamoorthi/brackets-sidebar-plus) extension.
