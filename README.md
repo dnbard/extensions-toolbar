@@ -16,7 +16,7 @@ Extensions toolbar reposition
 
 ![example](http://content.screencast.com/users/dnbard/folders/Jing/media/a6772f69-01f6-4eeb-9fc6-a5fcb48a173c/2014-07-02_1047.png)
 
-* You can manage the list of hidden extensions
+* You can manage the list of hidden extensions from Extension Manager or custom dialog
 
 ![example](http://content.screencast.com/users/dnbard/folders/Jing/media/6cdba794-c120-44c9-8681-bd3f991e5876/2014-07-02_1050.png)
 
