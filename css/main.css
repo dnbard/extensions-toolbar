@@ -9,7 +9,7 @@
     background: lightgray;
 }
 
-.ext_toolbar .extension > .e-icon{
+.ext_toolbar .extension .e-icon{
     margin-left: 5px;
     width: 24px;
     height: 24px;
