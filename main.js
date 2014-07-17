@@ -33,7 +33,7 @@ define(function (require, exports, module) {
     function prepareEditor(){
         statusCursor.css('vertical-align', 'top');
         statusFile.css('vertical-align', 'top');
-        content.css('width','100%');
+        content.css('right','0');
     }
     
     function controlScrollBarPosition(){
@@ -42,8 +42,8 @@ define(function (require, exports, module) {
     }
     
     function onDocumentChange(){
-        $('.CodeMirror-vscrollbar').css('position', 'fixed');
-        $('#status-bar').css('z-index', '10');
+        //$('.CodeMirror-vscrollbar').css('position', 'fixed');
+        //$('#status-bar').css('z-index', '10');
     }
     
     function format(extension){

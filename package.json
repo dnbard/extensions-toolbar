@@ -3,11 +3,11 @@
     "title": "Extensions Toolbar Reposition",
     "description": "Make bigger editor window, hide and manage extension icons",
     "homepage": "https://github.com/dnbard/extensions-toolbar",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "author": "Alex Bardanov <dnbard@gmail.com>",
     "license": "MIT",
     "engines": {
-        "brackets": ">=0.39.0"
+        "brackets": ">=0.32.0"
     },
     "keywords": ["extensions", "editor", "enhancement", "icons"]
 }
