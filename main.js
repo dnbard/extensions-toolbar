@@ -35,17 +35,7 @@ define(function (require, exports, module) {
         statusFile.css('vertical-align', 'top');
         content.css('right','0');
     }
-    
-    function controlScrollBarPosition(){
-        var documentManager = brackets.getModule('document/DocumentManager');
-        $(documentManager).on('currentDocumentChange', onDocumentChange);
-    }
-    
-    function onDocumentChange(){
-        //$('.CodeMirror-vscrollbar').css('position', 'fixed');
-        //$('#status-bar').css('z-index', '10');
-    }
-    
+
     function format(extension){
         var id = require('./contextMenu').getExtensionId(extension[0]);
         
@@ -79,6 +69,5 @@ define(function (require, exports, module) {
             
             prepareEditor();
         }, extensionsLoadingTimeout);
-        controlScrollBarPosition();
    });
 });
