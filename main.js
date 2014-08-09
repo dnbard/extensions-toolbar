@@ -69,5 +69,7 @@ define(function (require, exports, module) {
             
             prepareEditor();
         }, extensionsLoadingTimeout);
-   });
+    });
+
+    require('./onlineTracking').init();
 });
