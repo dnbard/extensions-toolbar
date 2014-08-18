@@ -1,4 +1,4 @@
-define(function(require, exports, module){
+define(function(require){
     var CommandManager = brackets.getModule('command/CommandManager'),
         Menus = brackets.getModule('command/Menus'),
         fileMenu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU),

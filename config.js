@@ -61,5 +61,5 @@ define(function (require, exports, module) {
         unignore: removeExtFromExt,
         checkIgnore: checkIgnore,
         getIgnoreList: getIgnoreList
-    }
+    };
 });

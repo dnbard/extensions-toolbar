@@ -1,13 +1,13 @@
-define(function (require, exports, module) {
-    var target = $('body')[0],
+define(function (require) {
+    var $ = window.jQuery,
+        target = $('body')[0],
         appConfig = require('./config'),
         _ = require('./vendor/lodash.min');
     
-    var observer = new MutationObserver(function(mutations) {
+    var observer = new window.MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if (mutation.type === 'childList' && mutation.addedNodes && mutation.addedNodes.length === 1){
-                var target = $(mutation.addedNodes[0]),
-                    token;
+                var target = $(mutation.addedNodes[0]);
                 if (target.find('.extension-manager-dialog.modal').length === 1){
                     console.log('Mutation condition met');
                     
@@ -39,8 +39,7 @@ define(function (require, exports, module) {
                         
                         row.find('button').click(function(event){
                             var $target = $(event.target),
-                                id = $target.attr('data-extension-id'),
-                                row = $(event.target.parentNode.parentNode);
+                                id = $target.attr('data-extension-id');
                             
                             if (typeof id !== 'string' || id.length === 0){
                                 throw new Error('Can\'t find propper Id');
