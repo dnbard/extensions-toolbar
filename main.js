@@ -1,32 +1,22 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
-/*global define, $, brackets, window */
+/*global define, $, brackets */
 
 define(function (require, exports, module) {
     "use strict";
     
-    var CommandManager = brackets.getModule('command/CommandManager'),
-        Menus = brackets.getModule('command/Menus'),
-        ExtensionUtils = brackets.getModule('utils/ExtensionUtils'),
+    var ExtensionUtils = brackets.getModule('utils/ExtensionUtils'),
+        AppInit = brackets.getModule('utils/AppInit'),
         extensionsToolbar = $('#main-toolbar'),
         statusToolbar = $('#status-info'),
         statusCursor = $('#status-cursor'),
         statusFile = $('#status-file'),
         content = $('.content'),
-        scrollBar = $('.CodeMirror-vscrollbar'),
-        //give extensions 1 sec to load itself
-        extensionsLoadingTimeout = 1000,
         contextMenu = require('./contextMenu').menu,
         config = require('./config');
     
     require('./mainMenu');
     require('./mutationService');
     ExtensionUtils.loadStyleSheet(module, 'css/main.css');
-
-    function getClickHandler(extension){
-        return function(){
-            extension.trigger('click');
-        }
-    }
     
     extensionsToolbar.hide();
     
@@ -55,20 +45,18 @@ define(function (require, exports, module) {
         });
     }
 
-    $(document).ready(function(){
-        setTimeout(function(){
-            var extensions = extensionsToolbar.find('.buttons > a'),
-                holder = $('<div></div>');
+    AppInit.appReady(function(){
+        var extensions = extensionsToolbar.find('.buttons > a'),
+            holder = $('<div></div>');
 
-            statusToolbar.prepend(holder);
-            for (var i = 0; i < extensions.length; i ++){
-                var extension = $(extensions[i]);
-                holder.append(extension);
-                format(extension);
-            }
-            
-            prepareEditor();
-        }, extensionsLoadingTimeout);
+        statusToolbar.prepend(holder);
+        for (var i = 0; i < extensions.length; i ++){
+            var extension = $(extensions[i]);
+            holder.append(extension);
+            format(extension);
+        }
+
+        prepareEditor();
     });
 
     require('./onlineTracking').init();
