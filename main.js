@@ -37,6 +37,9 @@ define(function (require, exports, module) {
         extension.css('width', '24px');
         extension.css('height', '24px');
         
+        extension.addClass('ext-icon');
+
+
         extension.mousedown(function(event){
             if (event.which === 3){
                 contextMenu.setTarget(extension);

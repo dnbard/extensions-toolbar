@@ -28,3 +28,13 @@
     padding: 2px 5px;
     margin: 1px 5px;
 }
+
+.ext-icon{
+    vertical-align: top;
+    text-align: center;
+}
+
+.ext-icon:before{
+    vertical-align: top;
+    text-align: center;
+}
