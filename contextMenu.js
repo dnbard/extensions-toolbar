@@ -14,7 +14,7 @@ define(function(require, exports, module){
         if (typeof extension !== 'object'){
             throw new Error('Invalid argument');
         }
-        return extension.id || null;
+        return extension.id || extension.className || null;
     }
     
     function hideExtension(){
@@ -30,6 +30,23 @@ define(function(require, exports, module){
         }
     }
     
+    function getExtensionDom(id){
+        if (!id){
+            return null;
+        }
+
+        var element = $('#'+id);
+        if (element.length === 0){
+            element = $('.'+id);
+        }
+
+        if (element.length === 0){
+            return null;
+        }
+
+        return element;
+    }
+
     function showSettings(){
         var Dialogs = brackets.getModule('widgets/Dialogs'),
             dlg = Dialogs.showModalDialogUsingTemplate(settings),
@@ -62,7 +79,7 @@ define(function(require, exports, module){
 
             if (config.unignore(id)){
                 $(event.target.parentNode).hide();
-                $('#'+id).css('display', 'inline-block');
+                getExtensionDom('#'+id).css('display', 'inline-block');
 
                 if (_.size(config.getIgnoreList()) === 0){
                     modalBody.empty();
