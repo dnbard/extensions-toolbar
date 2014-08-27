@@ -14,7 +14,9 @@ define(function(require, exports, module){
         if (typeof extension !== 'object'){
             throw new Error('Invalid argument');
         }
-        return extension.id || extension.className || null;
+
+        var id = extension.id || extension.className || null;
+        return id.replace(' ext-icon', '');
     }
     
     function hideExtension(){
@@ -37,7 +39,7 @@ define(function(require, exports, module){
 
         var element = $('#'+id);
         if (element.length === 0){
-            element = $('.'+id);
+            element = $('.'+id.replace(' ', '.'));
         }
 
         if (element.length === 0){
@@ -79,7 +81,7 @@ define(function(require, exports, module){
 
             if (config.unignore(id)){
                 $(event.target.parentNode).hide();
-                getExtensionDom('#'+id).css('display', 'inline-block');
+                getExtensionDom(id).css('display', 'inline-block');
 
                 if (_.size(config.getIgnoreList()) === 0){
                     modalBody.empty();

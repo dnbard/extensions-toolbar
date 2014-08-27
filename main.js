@@ -49,7 +49,7 @@ define(function (require, exports, module) {
     }
 
     AppInit.appReady(function(){
-        var extensions = extensionsToolbar.find('.buttons > a'),
+        var extensions = extensionsToolbar.find('.buttons > *'),
             holder = $('<div class="extension-toolbar"></div>');
 
         statusToolbar.prepend(holder);

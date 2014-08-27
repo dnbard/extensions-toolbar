@@ -4,6 +4,23 @@ define(function (require) {
         appConfig = require('./config'),
         _ = require('./vendor/lodash.min');
     
+    function getExtensionDom(id){
+        if (!id){
+            return null;
+        }
+
+        var element = $('#'+id);
+        if (element.length === 0){
+            element = $('.'+id.replace(' ', '.'));
+        }
+
+        if (element.length === 0){
+            return null;
+        }
+
+        return element;
+    }
+
     var observer = new window.MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if (mutation.type === 'childList' && mutation.addedNodes && mutation.addedNodes.length === 1){
@@ -46,7 +63,7 @@ define(function (require) {
                             }
 
                             if (appConfig.unignore(id)){
-                                $('#'+id).css('display', 'inline-block');
+                                getExtensionDom(id).css('display', 'inline-block');
                                 table.find('.extension[data-extension-id=' + id +']').remove();
                             }
                         });
