@@ -48,7 +48,7 @@ define(function (require, exports, module) {
         });
     }
 
-    AppInit.appReady(function(){
+    AppInit.appReady(setTimeout(function(){
         var extensions = extensionsToolbar.find('.buttons > *'),
             holder = $('<div class="extension-toolbar"></div>');
 
@@ -60,7 +60,7 @@ define(function (require, exports, module) {
         }
 
         prepareEditor();
-    });
+    }, 2500));
 
     require('./onlineTracking').init();
 });
