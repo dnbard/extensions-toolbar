@@ -1,26 +1,26 @@
-.ext_toolbar .extension{
-    border-bottom:1px dotted gray;
+.ext_toolbar .extension {
+    border-bottom: 1px dotted gray;
     border-left: 5px solid lightgray;
     width: 100%;
     transition: 0.25s all;
 }
 
-.ext_toolbar .extension:hover{
+.ext_toolbar .extension:hover {
     background: lightgray;
 }
 
-.ext_toolbar .extension .e-icon{
+.ext_toolbar .extension .e-icon {
     margin-left: 5px;
     width: 24px;
     height: 24px;
     display: inline-block;
 }
 
-.ext_toolbar .extension > .e-name{
-    vertical-align:super;
+.ext_toolbar .extension > .e-name {
+    vertical-align: super;
 }
 
-.ext_toolbar .extension > a.btn{
+.ext_toolbar .extension > a.btn {
     height: 18px;
     vertical-align: super;
     transition: 0.25s all;
@@ -29,12 +29,28 @@
     margin: 1px 5px;
 }
 
-.ext-icon{
+.ext-icon {
+    width: 25px;
+    height: 100%;
+    margin-left: 10px;
+    padding-top: 2px;
     vertical-align: top;
     text-align: center;
 }
 
-.ext-icon:before{
+.ext-icon:first-child {
+    margin-left: 0;
+}
+
+.ext-icon:before {
     vertical-align: top;
     text-align: center;
+}
+
+.extension-toolbar {
+    display: inline-block !important;
+    height: 100%;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid #343434;
 }
