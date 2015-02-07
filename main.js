@@ -46,19 +46,21 @@ define(function (require, exports, module) {
         });
     }
 
-    AppInit.appReady(setTimeout(function(){
-        var extensions = extensionsToolbar.find('.buttons > *'),
-            holder = $('<div class="extension-toolbar"></div>');
+    AppInit.appReady(function(){
+        setTimeout(function(){
+            var extensions = extensionsToolbar.find('.buttons > *'),
+                holder = $('<div class="extension-toolbar"></div>');
 
-        statusToolbar.prepend(holder);
-        for (var i = 0; i < extensions.length; i ++){
-            var extension = $(extensions[i]);
-            holder.append(extension);
-            format(extension);
-        }
+            statusToolbar.prepend(holder);
+            for (var i = 0; i < extensions.length; i ++){
+                var extension = $(extensions[i]);
+                holder.append(extension);
+                format(extension);
+            }
 
-        prepareEditor();
-    }, 2500));
+            prepareEditor();
+        }, 2500);
+    });
 
     require('./onlineTracking').init();
 });
