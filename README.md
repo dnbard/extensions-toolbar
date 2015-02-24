@@ -1,4 +1,4 @@
-Extensions toolbar reposition
+Extensions Toolbar Reposition
 =============================
 
 [Brackets](http://brackets.io/) extension that create bigger editor window and helps to manage extension icons.

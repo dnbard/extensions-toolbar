@@ -30,9 +30,11 @@ define(function (require, exports, module) {
         var id = require('./contextMenu').getExtensionId(extension[0]);
 
         if (extension.css('display') !== 'none' && !config.checkIgnore(id)){
-            extension.css('display', 'inline-block');
+            //extension.css('display', 'inline-block');
+            extension.removeClass('ext-hidden');
         } else {
-            extension.css('display', 'none');
+            extension.addClass('ext-hidden');
+            //extension.css('display', 'none');
         }
 
         extension.addClass('ext-icon');

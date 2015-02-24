@@ -26,7 +26,8 @@ define(function(require, exports, module){
             config.ignore(id, {
                 image: $target.css('background')
             });
-            $target.css('display', 'none');
+            //$target.css('display', 'none');
+            $target.addClass('ext-hidden');
         } else {
             throw new Error('Extension ID must not be NULL. Please report which Brackets Extension throwing this error to https://github.com/dnbard/extensions-toolbar/ as new Issue!');
         }
@@ -81,7 +82,8 @@ define(function(require, exports, module){
 
             if (config.unignore(id)){
                 $(event.target.parentNode).hide();
-                getExtensionDom(id).css('display', 'inline-block');
+                //getExtensionDom(id).css('display', 'inline-block');
+                getExtensionDom(id).removeClass('ext-hidden');
 
                 if (_.size(config.getIgnoreList()) === 0){
                     modalBody.empty();
