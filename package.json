@@ -3,11 +3,11 @@
     "title": "Extensions Toolbar Reposition",
     "description": "Move extension toolbar to bottom to enlarge editor window. Hide and manage extension icons.",
     "homepage": "https://github.com/dnbard/extensions-toolbar",
-    "version": "0.2.9",
+    "version": "0.2.10",
     "author": "Alex Bardanov <dnbard@gmail.com>",
     "license": "MIT",
     "engines": {
         "brackets": ">=1.1.0"
     },
-    "keywords": ["extensions", "editor", "enhancement", "icons"]
+    "keywords": ["extensions", "editor", "enhancement", "icons", "toolbar"]
 }
